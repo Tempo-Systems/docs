@@ -1,0 +1,53 @@
+---
+title: "Salesforce"
+description: "Connect Deal Brain to Salesforce to keep your system of record in sync, real-time, all-the-time."
+---
+
+Deal Brain connects to Salesforce as a Connected App. A Salesforce Admin must approve the integration before users can authenticate.
+
+## Common errors
+
+If you see any of the following errors when attempting to log in, access has not yet been granted by your Salesforce Admin:
+
+- `OAuth App Blocked`
+- `OAuth Error`
+- `OAUTH_APPROVAL_ERROR_GENERIC`
+
+To resolve this, work with your Salesforce Administrator or Operations team to complete the steps below.
+
+## Admin approval flow
+
+<Steps>
+  <Step title="Confirm Deal Brain is installed as a Connected App">
+    In Salesforce, go to **Setup → Apps → Connected Apps → Connected Apps OAuth Usage**, find **Deal Brain**, and click **Install**.
+
+    <img src="/images/integrations/sf-connected-apps.png" alt="Connected Apps OAuth Usage in Salesforce showing Deal Brain installed" />
+  </Step>
+  <Step title="Configure user access">
+    Once installed, click **Manage App Policies** and ensure **Permitted Users** is set to **All users may self-authorize** (default).
+
+    <img src="/images/integrations/sf-oauth-policies.png" alt="OAuth Policies showing Permitted Users set to All users may self-authorize" />
+  </Step>
+  <Step title="Re-authenticate in Deal Brain">
+    After policies are updated, users can log back into Deal Brain and re-authenticate with Salesforce successfully.
+  </Step>
+</Steps>
+
+## Permissions
+
+Deal Brain requests the following OAuth scopes:
+
+| Scope | Purpose |
+|-------|---------|
+| `email` | Identify the authenticated user |
+| `openid` | Identify the authenticated user |
+| `profile` | Identify the authenticated user |
+| `api` | Read and write Salesforce data |
+| `offline_access` | Maintain access without requiring re-authentication |
+
+### What we do with these permissions
+
+- Query and sync field definitions for Accounts, Contacts, and Opportunities
+- Sync a subset of Opportunities and field values (selected by the user during onboarding)
+- For that subset of Opportunities, sync related Account and Contact objects
+- Write Opportunity field values back to Salesforce when a user edits them

@@ -1,0 +1,24 @@
+---
+title: "Google Workspace"
+description: "Connect Gmail and Google Calendar to give Deal Brain the context it needs to act on your deals."
+---
+
+Deal Brain connects to Google Workspace to sync email and calendar data. This context is used to associate activity with your Opportunities, Accounts, and Contacts in Salesforce, and to surface potential CRM updates.
+
+## Permissions
+
+Deal Brain requests the following OAuth scopes:
+
+| Scope | Purpose |
+|-------|---------|
+| `email` | Identify the authenticated user |
+| `openid` | Identify the authenticated user |
+| `profile` | Identify the authenticated user |
+| `https://www.googleapis.com/auth/gmail.readonly` | Read email messages |
+| `https://www.googleapis.com/auth/calendar.readonly` | Read calendar events |
+
+### What we do with these permissions
+
+- Query and sync email messages and calendar events
+- Associate that activity with relevant Opportunities, Accounts, and Contacts
+- Form the basis of potential updates to CRM record values
