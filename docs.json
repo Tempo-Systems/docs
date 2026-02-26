@@ -47,14 +47,7 @@
     "light": "/logo/full-light.png",
     "dark": "/logo/full-dark.png"
   },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@dealbrain.com"
-      }
-    ]
-  },
+  "navbar": {},
   "contextual": {
     "options": [
       "copy",
