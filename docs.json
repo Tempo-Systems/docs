@@ -8,6 +8,11 @@
     "dark": "#D63A10"
   },
   "favicon": "/favicon.png",
+  "background": {
+    "color": {
+      "dark": "#2C2A24"
+    }
+  },
   "navigation": {
     "tabs": [
       {
